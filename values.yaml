@@ -1,0 +1,5 @@
+replicas: 1
+image:
+  registry: docker.io
+  ports:
+    server: 10578
