@@ -41,22 +41,22 @@ spec:
           readOnly: true
       volumes:
         - name: config
-          hostPath:
-            path: /etc/skyrim-together/config
-            type: Directory
+          configMap:
+            name: skyrim-together-config
+            defaultMode: 0644
         - name: data
           hostPath:
-            path: /data/skyrim-together
+            path: {{ .Values.volumes.data.hostPath }}
             type: Directory
         - name: logs
           hostPath:
-            path: /var/log/skyrim-together
+            path: {{ .Values.volumes.logs.hostPath }}
             type: Directory
         - name: localtime
           hostPath:
             path: /etc/localtime
-            type: Directory
+            type: File
         - name: timezone
           hostPath:
             path: /etc/timezone
-            type: Directory
+            type: File
